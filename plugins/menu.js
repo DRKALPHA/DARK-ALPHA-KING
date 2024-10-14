@@ -1,11 +1,9 @@
 const {readEnv} = require('../lib/database')
 const {cmd , commands} = require('../command')
-const os = require("os")
-const {runtime} = require('../lib/functions')
 
 cmd({
     pattern: "menu",
-    desc: "To get the menu.",
+    desc: "get cmd list",
     react: "📜",
     category: "main",
     filename: __filename
