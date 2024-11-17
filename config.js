@@ -1,66 +1,81 @@
-const fs = require('fs-extra')
-if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/config.env' })
+const fs = require("fs");
+require("dotenv").config();
 
-
-//═══════[Required Variables]════════\\
-global.audio = "";
-global.video = "";
-global.port = process.env.PORT;
-global.appUrl = process.env.APP_URL || "";
-global.email = "";
-global.location = "Lahore,Pakistan.";
-global.mongodb = process.env.MONGODB_URI || "";
-global.allowJids = process.env.ALLOW_JID || "94713824099@s.whatsapp.net";
-global.blockJids = process.env.BLOCK_JID || "null";
-global.DATABASE_URL = process.env.DATABASE_URL || "";
-global.timezone = process.env.TZ || process.env.TIME_ZONE || "Asia/Karachi";
-global.github = process.env.GITHUB || "https://github.com/Itxxwasi/WASI-MD-V2";
-global.gurl =
-  process.env.GURL || "https://whatsapp.com/channel/0029VaDK8ZUDjiOhwFS1cP2j";
-global.website =
-  process.env.GURL || "https://whatsapp.com/channel/0029VaDK8ZUDjiOhwFS1cP2j";
-global.THUMB_IMAGE =
-  process.env.THUMB_IMAGE ||
-  process.env.IMAGE ||
-  "https://telegra.ph/file/1f4e6e1cc2ed1662adb36.jpg";
-global.devs = "94763906841";
-global.sudo = process.env.SUDO || "94763906841";
-global.owner = process.env.OWNER_NUMBER || "94763906841";
-global.style = process.env.STYLE || "3";
-global.gdbye = process.env.GOODBYE || "false";
-global.wlcm = process.env.WELCOME || "false";
-global.warncount = process.env.WARN_COUNT || 3;
-global.disablepm = process.env.DISABLE_PM || "false";
-(global.disablegroup = process.env.DISABLE_GROUPS || "false"),
-  (global.MsgsInLog = process.env.MSGS_IN_LOG || "true");
-global.userImages = process.env.USER_IMAGES || "";
-global.waPresence = process.env.WAPRESENCE || "recording";
-global.readcmds = process.env.READ_COMMAND || "false";
-global.readmessage = process.env.READ_MESSAGE || "false";
-global.readmessagefrom = process.env.READ_MESSAGE_FROM || "";
-global.read_status = process.env.AUTO_READ_STATUS || "true";
-global.save_status = process.env.AUTO_SAVE_STATUS || "false";
-global.save_status_from = process.env.SAVE_STATUS_FROM || "";
-global.read_status_from = process.env.READ_STATUS_FROM || "";
-global.autoreaction = process.env.autoreaction || "true";
-
-global.api_smd = "https://api-smd-1.vercel.app";
-global.scan = "https://pair-qr-wasi-md.onrender.com";
-
-global.SESSION_ID = process.env.SESSION_ID || "bJ0ylAyC#-Mp6NcIajCPFtLL5QmXYAlwCH2IMGGa2e7l1rsbFIm0";
 module.exports = {
-  menu: process.env.MENU || "",
-  HANDLERS: process.env.PREFIX || ".",
-  BRANCH: process.env.BRANCH || "main",
-  VERSION: process.env.VERSION || "1.0.0",
-  caption: process.env.CAPTION || "𝐅𝐈𝐋𝐄-𝐆𝐄𝐍𝐄𝐑𝐀𝐓𝐄𝐃-𝐁𝐘-𝐖𝐀𝐒𝐈-𝐌𝐃-𝐕2😍",
-  author: process.env.PACK_AUTHER || "WASO",
-  packname: process.env.PACK_NAME || "♥️",
-  botname: process.env.BOT_NAME || "𝐖𝐀𝐒𝐈-𝐌𝐃-𝐕2",
-  ownername: process.env.OWNER_NAME || "WASI",
-  errorChat: process.env.ERROR_CHAT || "",
-  KOYEB_API: process.env.KOYEB_API || "false",
-  REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
+  //==========================================- MAIN - CONFIGS -==================================================================
+  SESSION_ID: process.env.SESSION_ID || "Put Session Id",
+  // ADD Your Session Id 
+  MONGODB: process.env.MONGODB || "mongodb+srv://kulathungaasitha319:yjHB0DvFfStNfwPS@cluster0.3oijd.mongodb.net/",
+    // ADD Your MongoDB Database URL
+  PREFIX: process.env.PREFIX || ".",
+  // Add Your Custom Prefix 
+  mode: process.env.mode || "public",
+  // Add Your Bot Mode 
+  // private = Only Working For Owner Number
+  // public = AnyOne Working
+  // inbox = Only Working  Inbox
+  // groups = only working in group
+  OWNER_NUMBER: process.env.OWNER_NUMBER || "94718913389",
+  //========================================- OTHER - CONFIGS -=====================================================================
+  AUTO_VOICE: process.env.AUTO_VOICE || "true",
+  ANTI_BAD_WORDS_ENABLED: process.env.ANTI_BAD_WORDS_ENABLED || "true",
+  AUTO_READ_STATUS: process.env.AUTO_READ_STATUS || "true",
+  AUTO_READ_CMD: process.env.AUTO_READ_CMD || "true",
+  ANTI_BAD_WORDS: (process.env.ANTI_BAD_WORDS || "pakayo,huththo").split(','),
+  ANTI_LINK: process.env.ANTILINK || "true",
+  ALWAYS_ONLINE: process.env.ALWAYS_ONLINE || "true",
+  ALWAYS_TYPING: process.env.ALWAYS_TYPING || "true",
+  ALWAYS_RECORDING: process.env.ALWAYS_RECORDING || "true",
+  ANTI_BOT: process.env.ANTI_BOT || "true",
+  ANTI_DELETE: process.env.ANTI_DELETE || "true",
+  packname: process.env.packname || "SAHAS TECH",
+  author: process.env.author || "SAHAS TECH",
+  //==========================================- API-CONFIGS -==========================================================
+  OPENWEATHER_API_KEY: process.env.OPENWEATHER_API_KEY || "2d61a72574c11c4f36173b627f8cb177", //openweathermap.org
+  ELEVENLABS_API_KEY: process.env.ELEVENLABS_API_KEY || "sk_6438bcc100d96458f8de0602aec662f4ba14b905fd090ad3", //elevenlabs.io
+  SHODAN_API: process.env.SHODAN_API || "cbCkidr6qd7AFVaYs56MuCouGfM8gFki", //developer.shodan.io
+  PEXELS_API_KEY: process.env.PEXELS_API_KEY || "39WCzaHAX939xiH22NCddGGvzp7cgbu1VVjeYUaZXyHUaWlL1LFcVFxH", // pexels.com
+  OMDB_API_KEY: process.env.OMDB_API_KEY || "76cb7f39", // omdbapi.com
+  PIXABAY_API_KEY: process.env.PIXABAY_API_KEY || "23378594-7bd620160396da6e8d2ed4d53", // pixabay.com
+  ZIPCODEBASE_API_KEY: process.env.ZIPCODEBASE_API_KEY || "0f94a5f0-6ea4-11ef-81da-579be4fb031c", // zipcodebase.com
+  GOOGLE_API_KEY: process.env.GOOGLE_API_KEY || "AIzaSyD93IeJsouK51zjKgyHAwBIAlqr-a8mnME", 
+  GOOGLE_CX: process.env.GOOGLE_CX || "AIzaSyD93IeJsouK51zjKgyHAwBIAlqr-a8mnME", 
+  PASTEBIN_API_KEY: process.env.PASTEBIN_API_KEY || "uh8QvO6vQJGtIug9WvjdTAPx_ZAFJAxn",
+
+
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
+
+  
+  START_MSG: process.env.START_MSG || `🚀 *_SAHAS-MD Connected Successfully!_* ✅ 
+
+--- *👨‍💻🎉 _Welcome to SAHAS-MD!_* 🎉💗 
+
+*🔹 OWNER:* 94718913389
+
+_Thank you for using_ *👨‍💻SAHAS-MD💗.*
+_We're here to make your experience enjoyable and seamless._
+_If you need any help or have questions, don't hesitate to ask._ 🌝💗
+
+*🖇️Join My WhatsApp Channel✓💗 - :* https://whatsapp.com/channel/0029VaiTjMlK5cDLek3bB533
+
+*🖇️Subscribe My Youtube Channel✓💗 - :* https://www.youtube.com/@Sahas_Tech
+
+*🖇️Fork & Star My Repo✓💗 - :* https://github.com/SahasTech22/SAHAS-MD
+
+*🖇️Follow My Github Account✓💗 - :* https://github.com/SahasTech22
+
+_*👨‍💻 Enjoy your time with us! 😊*_
+
+> *©ᴘᴏᴡᴇʀᴇᴅ ʙʏ ꜱᴀʜᴀꜱ ᴛᴇᴄʜ*` ,
+
+  ALIVE_IMG: process.env.ALIVE_IMG || "https://files.catbox.moe/de82e3.jpg",
+  MENU_IMG: process.env.MENU_IMG || "https://files.catbox.moe/de82e3.jpg",
+  MENU_MSG: process.env.MENU_MSG || `Menumsg`,
+    MENU_MS: process.env.MENU_MS || `menu 2`,
+
+};  REMOVE_BG_KEY: process.env.REMOVE_BG_KEY || "",
   OPENAI_API_KEY: process.env.OPENAI_API_KEY || "",
   HEROKU_API_KEY: process.env.HEROKU_API_KEY || "",
   HEROKU_APP_NAME: process.env.HEROKU_APP_NAME || "",
