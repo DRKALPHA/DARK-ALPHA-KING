@@ -1,6 +1,8 @@
-const fs = require("fs-extra");
-if (fs.existsSync(".env"))
-    require("dotenv").config({ path: __dirname + "/.env" });
+const fs = require('fs-extra')
+if (fs.existsSync('config.env')) require('dotenv').config({ path: __dirname+'/config.env' })
+
+
+//═══════[Required Variables]════════\\
 global.audio = "";
 global.video = "";
 global.port = process.env.PORT;
